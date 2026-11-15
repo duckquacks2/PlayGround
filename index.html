@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101524">
+  <title>Midnight Run — The Enchanted Corridor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Harry races through an enchanted corridor. Jump obstacles and duck under spells."></canvas>
+    <header class="hud" id="hud" aria-live="polite">
+      <div class="brand"><span class="brand-mark">✦</span><span>MIDNIGHT <b>RUN</b></span></div>
+      <div class="meters">
+        <div class="meter"><span class="meter-icon">✧</span><span id="distance">0 m</span></div>
+        <div class="meter"><span class="meter-icon star">★</span><span id="stars">0</span></div>
+        <div class="hearts" id="hearts" aria-label="3 hearts remaining">♥ ♥ ♥</div>
+      </div>
+      <button class="pause-button" id="pauseButton" aria-label="Pause game">Ⅱ</button>
+    </header>
+    <div class="hint" id="hint"><span class="hint-dot"></span> THE CORRIDOR IS NEVER EMPTY</div>
+    <div class="chaser-tag" id="chaserTag"><span class="chaser-copy"><span class="chaser-eye">◉</span> MALFOID IS CLOSE</span><span class="chase-track"><i id="chaseFill"></i></span></div>
+    <div class="controls" id="controls" aria-label="Game controls">
+      <button class="control-btn hide-btn" id="hideBtn" aria-label="Hide or duck" data-action="hide">
+        <span class="control-glyph">⌄</span><span class="control-label">HIDE</span>
+      </button>
+      <div class="control-center"><span>HOLD TO HIDE</span></div>
+      <button class="control-btn jump-btn" id="jumpBtn" aria-label="Jump" data-action="jump">
+        <span class="control-glyph">↑</span><span class="control-label">JUMP</span>
+      </button>
+    </div>
+    <section class="overlay intro-overlay" id="introOverlay">
+      <div class="intro-card">
+        <div class="eyebrow"><i></i> A HOGWARTS NIGHTMARE <i></i></div>
+        <div class="crest">✦</div>
+        <h1>MIDNIGHT<br><em>RUN</em></h1>
+        <p class="subtitle">THE ENCHANTED CORRIDOR</p>
+        <p class="story">The castle is asleep. <strong>Malfoid</strong> is not.<br>Run, hide, and don't let him catch you.</p>
+        <div class="howto">
+          <div class="howto-item"><span class="mini-key">↑</span><span><b>JUMP</b><small>Over enchanted clutter</small></span></div>
+          <div class="howto-item"><span class="mini-key">⌄</span><span><b>HIDE</b><small>Duck beneath spellfire</small></span></div>
+        </div>
+        <button class="primary-button" id="startButton">ENTER THE CORRIDOR <span>→</span></button>
+        <div class="footnote">TOUCH THE BUTTONS · OR USE SPACE / ↓</div>
+      </div>
+    </section>
+    <section class="overlay result-overlay hidden" id="resultOverlay">
+      <div class="result-card">
+        <div class="eyebrow" id="resultEyebrow"><i></i> THE NIGHT ISN'T OVER <i></i></div>
+        <div class="result-icon" id="resultIcon">✦</div>
+        <h2 id="resultTitle">CAUGHT IN THE ACT</h2>
+        <p id="resultMessage">The corridor claims another midnight story.</p>
+        <div class="result-stats"><div><b id="finalDistance">0 m</b><small>DISTANCE</small></div><div><b id="finalStars">0</b><small>STARDUST</small></div></div>
+        <button class="primary-button" id="restartButton">RUN IT BACK <span>↻</span></button>
+      </div>
+    </section>
+    <section class="overlay pause-overlay hidden" id="pauseOverlay">
+      <div class="pause-card"><div class="eyebrow"><i></i> TAKE A BREATH <i></i></div><h2>PAUSED</h2><p>The corridor can wait.</p><button class="primary-button" id="resumeButton">BACK TO IT <span>→</span></button></div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
